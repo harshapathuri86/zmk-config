@@ -1,0 +1,11 @@
+file_format: "1"
+id: harsha
+name: harsha
+type: shield
+requires: [seeed_xiao]
+features:
+  - keys
+  - encoder
+siblings:
+  - harsha_left
+  - harsha_right
