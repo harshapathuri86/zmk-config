@@ -100,6 +100,65 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_jk_esc {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp ESC>;
+        };
+        combo_xc_copy {
+            timeout-ms = <50>;
+            key-positions = <26 27>;
+            bindings = <&kp LC(C)>;
+        };
+        combo_zc_cut {
+            timeout-ms = <50>;
+            key-positions = <25 27>;
+            bindings = <&kp LC(X)>;
+        };
+        combo_zx_undo {
+            timeout-ms = <50>;
+            key-positions = <25 26>;
+            bindings = <&kp LC(Z)>;
+        };
+        combo_dotslash_dotdotslash {
+            timeout-ms = <50>;
+            key-positions = <35 36>;
+            bindings = <&mac_dotslash>;
+        };
+        combo_yu_rbkt {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp RBKT>;
+        };
+        combo_hj_rbkc {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp RBRC>;
+        };
+        combo_nm_rpar {
+            timeout-ms = <50>;
+            key-positions = <32 33>;
+            bindings = <&kp RPAR>;
+        };
+        combo_rt_rbkt {
+            timeout-ms = <50>;
+            key-positions = <4 5>;
+            bindings = <&kp LBKT>;
+        };
+        combo_fg_rbkc {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&kp LBRC>;
+        };
+        combo_vb_rpar {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&kp LPAR>;
+        };
+    };
+
 
         keymap {
                 compatible = "zmk,keymap";
