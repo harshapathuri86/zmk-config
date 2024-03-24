@@ -24,14 +24,14 @@
     quick-release;             // no double capitalization when rolling keys
 };
 
-&sl {  // sticky-layer config
-    ignore-modifiers;          // allow chording sticky mods & layers
-};
-
 &lt {
     tapping-term-ms = <250>;
     quick_tap_ms = <200>;
     flavor = "tap-preferred";
+};
+
+&sl {  // sticky-layer config
+    ignore-modifiers;          // allow chording sticky mods & layers
 };
 
 / {
@@ -41,8 +41,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
             #binding-cells = <2>;
-            tapping_term_ms = <200>;
-            quick_tap_ms = <0>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
