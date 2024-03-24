@@ -73,6 +73,34 @@
         };
     };
 
+    macros {
+        mac_dotslash: mac_dotslash {
+            label = "mac_dotslash";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp DOT &kp DOT &kp FSLH>;
+        };
+        mac_obkt: mac_obkt {
+            label = "mac_open_brackets";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
+        };    
+        mac_obrc: mac_obrc {
+            label = "mac_open_braces";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LBRC &kp RBRC &kp LEFT>;
+        };    
+        mac_opar: mac_opar {
+            label = "mac_open_parentheses";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
+        };
+    };
+
+
         keymap {
                 compatible = "zmk,keymap";
 
