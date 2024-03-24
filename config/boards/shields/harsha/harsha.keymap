@@ -66,6 +66,7 @@
         };
     };
 
+    /*
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
@@ -159,6 +160,7 @@
             bindings = <&kp LPAR>;
         };
     };
+    */
 
     keymap {
         compatible = "zmk,keymap";
