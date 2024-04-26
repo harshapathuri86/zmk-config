@@ -12,10 +12,10 @@
 #define AS(keycode) &as LS(keycode) keycode // Autoshift Macro
 
 &mt {
-  quick-tap-ms = <100>;
+  quick-tap-ms = <200>;
   global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <180>;
+  tapping-term-ms = <200>;
 };
 
 &sk {  // sticky-key config
@@ -50,7 +50,7 @@
             #binding-cells = <2>;
             label = "HOMEROW_MODS";
             flavor = "tap-unless-interrupted";
-            tapping-term-ms = <100>; // tap if held more than this
+            tapping-term-ms = <200>; // tap if held more than this
             quick-tap-ms = <200>; // double click holds tap
             bindings = <&kp>, <&kp>;
         };
@@ -160,7 +160,7 @@
 AS(LBKT)        AS(Q)   AS(W)   AS(E)   AS(R)   AS(T)                       AS(Y)   AS(U)   AS(I)       AS(O)       AS(P)       AS(RBKT)
 &mt LCTRL ESC   AS(A)   AS(S)   AS(D)   AS(F)   AS(G)                       AS(H)   AS(J)   AS(K)       AS(L)       AS(SEMI)    AS(SQT)
 &sk LGUI        AS(Z)   AS(X)   AS(C)   AS(V)   AS(B)  &none  &kp K_MUTE    AS(N)   AS(M)   AS(COMMA)   AS(DOT)     AS(FSLH)    &sk LALT
-                    &sk LCTRL  &lt RAISE SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt LOWER RET   &sk LSHIFT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
 
