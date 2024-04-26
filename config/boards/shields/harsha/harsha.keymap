@@ -4,10 +4,13 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define BASE 0
-#define LOWER  1
-#define RAISE  2
-#define ADJUST  3
+#define QWERTY 0
+#define QWERTY_HOME_MODS 1
+#define COLEMAK 2
+#define COLEMAK_HOME_MODS 3
+#define LOWER  4
+#define RAISE  5
+#define ADJUST  6
 
 #define AS(keycode) &as LS(keycode) keycode // Autoshift Macro
 
@@ -154,10 +157,9 @@
         keymap {
                 compatible = "zmk,keymap";
 
- default_layer {
-
+ qwerty_layer {
             bindings = <
-AS(LBKT)        AS(Q)   AS(W)   AS(E)   AS(R)   AS(T)                       AS(Y)   AS(U)   AS(I)       AS(O)       AS(P)       AS(RBKT)
+&to QWERTY_HOME_MODS    AS(Q)   AS(W)   AS(E)   AS(R)   AS(T)                       AS(Y)   AS(U)   AS(I)       AS(O)       AS(P)       &to QWERTY
 &mt LCTRL ESC   AS(A)   AS(S)   AS(D)   AS(F)   AS(G)                       AS(H)   AS(J)   AS(K)       AS(L)       AS(SEMI)    AS(SQT)
 &sk LGUI        AS(Z)   AS(X)   AS(C)   AS(V)   AS(B)  &none  &kp K_MUTE    AS(N)   AS(M)   AS(COMMA)   AS(DOT)     AS(FSLH)    &sk LALT
                     &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
@@ -165,6 +167,40 @@ AS(LBKT)        AS(Q)   AS(W)   AS(E)   AS(R)   AS(T)                       AS(Y
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
 
         };
+
+ qwerty_home_mods_layer {
+            bindings = <
+&to COLEMAK    &kp Q   &kp W   &kp E   &kp R   &kp T                       &kp Y   &kp U   &kp I       &kp O       &kp P       &to QWERTY
+&mt LCTRL ESC  &hm LGUI A   &hm LALT S   &hm LCTRL D   &hm LSHFT F      &kp G   &kp H   &hm RSHFT J   &hm RCTRL K       &hm RALT L       &hm RGUI SEMI    &kp SQT
+&sk LGUI    &kp Z   &kp X   &kp C   &kp V   &kp B  &none  &kp K_MUTE    &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk LALT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
+            >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+
+        };
+
+ colemak_layer {
+
+            bindings = <
+&to COLEMAK_HOME_MODS      AS(Q)   AS(W)   AS(F)   AS(P)   AS(B)                       AS(J)   AS(L)   AS(U)       AS(Y)       AS(SEMI)       &to QWERTY
+&mt LCTRL ESC   AS(A)   AS(R)   AS(S)   AS(T)   AS(G)                       AS(M)   AS(N)   AS(E)       AS(I)       AS(O)    AS(SQT)
+&sk LGUI        AS(Z)   AS(X)   AS(C)   AS(D)   AS(V)  &none  &kp K_MUTE    AS(K)   AS(H)   AS(COMMA)   AS(DOT)     AS(FSLH)    &sk LALT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
+            >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+ colemak_home_mods_layer {
+
+            bindings = <
+&none    &kp Q   &kp W   &kp F   &kp P   &kp B                       &kp J   &kp L   &kp U       &kp Y       &kp SEMI       &to QWERTY
+&mt LCTRL ESC   &hm LGUI A   &hm LALT R   &hm LCTRL S   &hm LSHFT T   &kp G           &kp M   &hm RSHFT N   &hm RCTRL E       &hm RALT I       &hm RGUI O    &kp SQT
+&sk LGUI    &kp Z   &kp X   &kp C   &kp D   &kp V  &none  &kp K_MUTE    &kp K   &kp H   &kp COMMA   &kp DOT     &kp FSLH    &sk LALT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
+            >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
 
 lower_layer {
 
