@@ -8,10 +8,9 @@
 #define QWERTY_AUTO_SHIFT 1
 #define COLEMAK_HOME_MODS 2
 #define COLEMAK_AUTO_SHIFT 3
-#define LOWER_AUTO_SHIFT 4
+#define LOWER  4
 #define RAISE  5
-#define RAISE_AUTO_SHIFT  6
-#define ADJUST 7
+#define ADJUST  6
 
 #define AS(keycode) &as LS(keycode) keycode // Autoshift Macro
 
@@ -174,13 +173,14 @@
 &to COLEMAK_HOME_MODS    AS(Q)   AS(W)   AS(E)   AS(R)   AS(T)                       AS(Y)   AS(U)   AS(I)       AS(O)       AS(P)       &to QWERTY_HOME_MODS
 &mt LCTRL ESC   AS(A)   AS(S)   AS(D)   AS(F)   AS(G)                       AS(H)   AS(J)   AS(K)       AS(L)       AS(SEMI)    AS(SQT)
 &sk LGUI        AS(Z)   AS(X)   AS(C)   AS(V)   AS(B)  &none  &kp K_MUTE    AS(N)   AS(M)   AS(COMMA)   AS(DOT)     AS(FSLH)    &sk LALT
-                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE_AUTO_SHIFT RET   &sk LSHIFT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
 
         };
 
  colemak_home_mods_layer {
+
             bindings = <
 &to COLEMAK_AUTO_SHIFT    &kp Q   &kp W   &kp F   &kp P   &kp B                       &kp J   &kp L   &kp U       &kp Y       &kp SEMI       &to QWERTY_HOME_MODS
 &mt LCTRL ESC   &hm LGUI A   &hm LALT R   &hm LCTRL S   &hm LSHFT T   &kp G           &kp M   &hm RSHFT N   &hm RCTRL E       &hm RALT I       &hm RGUI O    &kp SQT
@@ -191,16 +191,18 @@
         };
 
  colemak_auto_shift_layer {
+
             bindings = <
 &none      AS(Q)   AS(W)   AS(F)   AS(P)   AS(B)                       AS(J)   AS(L)   AS(U)       AS(Y)       AS(SEMI)       &to QWERTY_HOME_MODS
 &mt LCTRL ESC   AS(A)   AS(R)   AS(S)   AS(T)   AS(G)                       AS(M)   AS(N)   AS(E)       AS(I)       AS(O)    AS(SQT)
 &sk LGUI        AS(Z)   AS(X)   AS(C)   AS(D)   AS(V)  &none  &kp K_MUTE    AS(K)   AS(H)   AS(COMMA)   AS(DOT)     AS(FSLH)    &sk LALT
-                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE_AUTO_SHIFT RET   &sk LSHIFT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
 lower_layer {
+
             bindings = <
 &trans &kp APOS  &kp LT         &kp GT          &kp DQT         &kp KP_DOT                  &kp AMPS    &kp UNDER   &kp LBKT    &kp RBKT    &kp PRCNT   &trans
 &trans &kp EXCL  &kp KP_MINUS   &kp KP_PLUS     &kp KP_EQUAL    &kp HASH                    &kp PIPE    &kp COLON   &kp RBKT    &kp BSLH    &kp QMARK   &trans
@@ -212,16 +214,7 @@ lower_layer {
 
 
 raise_layer {
-            bindings = <
-&trans  &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                          &kp N6      &kp N7      &kp N8      &kp N9     &kp N0 &trans
-&trans  &mkp MB4    &mkp LCLK   &mkp MCLK   &mkp RCLK   &mkp MB5                        &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp K_APP &trans
-&trans  &trans      &kp K_REDO  &kp K_CUT   &kp K_COPY  &kp K_PASTE   &none &kp K_MUTE  &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &trans &trans
-                                &trans      &trans      &trans                          &trans      &trans      &trans
-            >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
-        };
 
-raise_auto_shift_layer {
             bindings = <
 &trans  AS(N1)      AS(N2)      AS(N3)      AS(N4)      AS(N5)                          AS(N6)      AS(N7)      AS(N8)      AS(N9)     AS(N0) &trans
 &trans  &mkp MB4    &mkp LCLK   &mkp MCLK   &mkp RCLK   &mkp MB5                        &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp K_APP &trans
@@ -232,6 +225,7 @@ raise_auto_shift_layer {
         };
 
     adjust_layer {
+
             bindings = <
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
 &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2        &bt BT_SEL 3    &bt BT_SEL 4                        &kp K_MUTE  &kp K_VOL_DN    &kp K_VOL_UP    &trans  &trans  &trans
