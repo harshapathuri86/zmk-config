@@ -10,6 +10,7 @@
 #define COLEMAK_AUTO_SHIFT 3
 #define LOWER_AUTO_SHIFT 4
 #define RAISE  5
+#define RAISE_AUTO_SHIFT  6
 #define ADJUST 7
 
 #define AS(keycode) &as LS(keycode) keycode // Autoshift Macro
@@ -173,7 +174,7 @@
 &to COLEMAK_HOME_MODS    AS(Q)   AS(W)   AS(E)   AS(R)   AS(T)                       AS(Y)   AS(U)   AS(I)       AS(O)       AS(P)       &to QWERTY_HOME_MODS
 &mt LCTRL ESC   AS(A)   AS(S)   AS(D)   AS(F)   AS(G)                       AS(H)   AS(J)   AS(K)       AS(L)       AS(SEMI)    AS(SQT)
 &sk LGUI        AS(Z)   AS(X)   AS(C)   AS(V)   AS(B)  &none  &kp K_MUTE    AS(N)   AS(M)   AS(COMMA)   AS(DOT)     AS(FSLH)    &sk LALT
-                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE_AUTO_SHIFT RET   &sk LSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
 
@@ -194,7 +195,7 @@
 &none      AS(Q)   AS(W)   AS(F)   AS(P)   AS(B)                       AS(J)   AS(L)   AS(U)       AS(Y)       AS(SEMI)       &to QWERTY_HOME_MODS
 &mt LCTRL ESC   AS(A)   AS(R)   AS(S)   AS(T)   AS(G)                       AS(M)   AS(N)   AS(E)       AS(I)       AS(O)    AS(SQT)
 &sk LGUI        AS(Z)   AS(X)   AS(C)   AS(D)   AS(V)  &none  &kp K_MUTE    AS(K)   AS(H)   AS(COMMA)   AS(DOT)     AS(FSLH)    &sk LALT
-                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE RET   &sk LSHIFT
+                    &sk LCTRL  &lt LOWER SPACE  &mt LGUI TAB     &mt LALT BKSP    &lt RAISE_AUTO_SHIFT RET   &sk LSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
@@ -213,6 +214,16 @@ lower_layer {
 raise_layer {
             bindings = <
 &trans  &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                          &kp N6      &kp N7      &kp N8      &kp N9     &kp N0 &trans
+&trans  &mkp MB4    &mkp LCLK   &mkp MCLK   &mkp RCLK   &mkp MB5                        &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp K_APP &trans
+&trans  &trans      &kp K_REDO  &kp K_CUT   &kp K_COPY  &kp K_PASTE   &none &kp K_MUTE  &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &trans &trans
+                                &trans      &trans      &trans                          &trans      &trans      &trans
+            >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+raise_auto_shift_layer {
+            bindings = <
+&trans  AS(N1)      AS(N2)      AS(N3)      AS(N4)      AS(N5)                          AS(N6)      AS(N7)      AS(N8)      AS(N9)     AS(N0) &trans
 &trans  &mkp MB4    &mkp LCLK   &mkp MCLK   &mkp RCLK   &mkp MB5                        &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp K_APP &trans
 &trans  &trans      &kp K_REDO  &kp K_CUT   &kp K_COPY  &kp K_PASTE   &none &kp K_MUTE  &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &trans &trans
                                 &trans      &trans      &trans                          &trans      &trans      &trans
