@@ -109,12 +109,10 @@
         colemak_layout_switch {
             bindings = <&tog COLEMAK>;
             key-positions = <2 3>;
-            layers = <QWERTY>;
         };
         qwerty_layout_switch {
             bindings = <&tog QWERTY>;
             key-positions = <3 4>;
-            layers = <COLEMAK>;
         };
         combo_sys_reset {
             timeout-ms = <50>;
