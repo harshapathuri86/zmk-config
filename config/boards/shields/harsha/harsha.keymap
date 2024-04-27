@@ -61,7 +61,7 @@
         compatible = "zmk,conditional-layers";
         tri_layer {
             if-layers = <LT1 LT2>;
-            then-layer = <LT2>;
+            then-layer = <LT3>;
         };
     };
 
@@ -165,10 +165,10 @@
 
  qwerty_layer {
             bindings = <
-&kp TAB         &kp Q           &kp W       &kp E       &kp R           &kp T                       &kp Y   &kp U           &kp I       &kp O       &kp P           &kp UNDER
-&mt LCTRL ESC   &kp A     &kp S  &kp D  &kp F    &kp G                       &kp H   &kp J    &kp K  &kp L  &kp SQT   &sk RALT
-&sk LSHIFT      &kp Z           &kp X       &kp C       &kp V           &kp B  &C_PP  &kp K_MUTE    &kp N   &kp M           &kp COMMA   &kp DOT     &kp FSLH        &sk GLOBE
-                &sk LCTRL       &mt LGUI SPACE &lt LT1 TAB                                          &lt LT2  BKSP  &mt LALT RET &sk RSHIFT
+&kp TAB         &kp Q       &kp W   &kp E   &kp R   &kp T                       &kp Y   &kp U    &kp I      &kp O   &kp P       &kp UNDER
+&mt LCTRL ESC   &kp A       &kp S   &kp D   &kp F   &kp G                       &kp H   &kp J    &kp K      &kp L   &kp SQT     &sk RALT
+&sk LSHIFT      &kp Z       &kp X   &kp C   &kp V   &kp B  &C_PP  &kp K_MUTE    &kp N   &kp M    &kp COMMA  &kp DOT &kp FSLH    &sk RGUI
+                &sk LCTRL       &mt LGUI SPACE &lt LT1 TAB                      &lt LT2  BKSP  &mt LALT RET &sk RSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
 
