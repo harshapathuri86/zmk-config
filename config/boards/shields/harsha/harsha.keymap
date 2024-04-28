@@ -166,7 +166,7 @@
 &kp TAB         &kp Q       &kp W   &kp E   &kp R   &kp T                       &kp Y   &kp U    &kp I      &kp O   &kp P       &kp UNDER
 &mt LCTRL ESC   &kp A       &kp S   &kp D   &kp F   &kp G                       &kp H   &kp J    &kp K      &kp L   &kp SQT     &sk RALT
 &sk LSHIFT      &kp Z       &kp X   &kp C   &kp V   &kp B  &kp C_PP  &kp K_MUTE    &kp N   &kp M    &kp COMMA  &kp DOT &kp FSLH    &sk RGUI
-                &sk LCTRL       &mt LGUI SPACE &lt LT1 TAB                      &lt LT2  BKSP  &mt LALT RET &sk RSHIFT
+                &sk LCTRL   &lt LT1 SPACE &mt LGUI TAB                            &mt LALT  BKSP &lt LT2 RET &sk RSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 
@@ -178,7 +178,7 @@
 &kp TAB       &kp Q   &kp W   &kp F   &kp P   &kp B                       &kp J   &kp L   &kp U       &kp Y       &kp SEMI       &kp DELETE
 &mt LCTRL ESC &kp A   &kp R   &kp S   &kp T   &kp G           &kp M   &kp N   &kp E       &kp I       &kp O    &sk RALT
 &sk LSHIFT    &kp Z   &kp X   &kp C   &kp D   &kp V  &trans  &trans &kp K   &kp H   &kp COMMA   &kp DOT     &kp FSLH    &sk GLOBE
-                &sk LCTRL &mt LGUI SPACE &lt LT1 TAB                    &lt LT2  BKSP  &mt LALT RET &sk RSHIFT
+                &sk LCTRL   &lt LT1 SPACE &mt LGUI TAB                            &mt LALT  BKSP &lt LT2 RET &sk RSHIFT
             >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
