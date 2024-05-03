@@ -106,11 +106,11 @@
             layers = <QWERTY COLEMAK>;
         };
         colemak_layout_switch {
-            bindings = <&tog COLEMAK>;
+            bindings = <&to COLEMAK>;
             key-positions = <2 3>;
         };
         qwerty_layout_switch {
-            bindings = <&tog QWERTY>;
+            bindings = <&to QWERTY>;
             key-positions = <3 4>;
         };
         combo_sys_reset {
