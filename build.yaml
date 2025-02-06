@@ -13,7 +13,7 @@
 #
 ---
 include:
-  - board: corne_left
+  - board: seeeduino_xiao_ble
     shield: harsha_left rgbled_adapter
-  - board: corne_right
+  - board: seeeduino_xiao_ble
     shield: harsha_right rgbled_adapter
