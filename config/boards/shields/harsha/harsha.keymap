@@ -45,7 +45,6 @@
 &sk LSHIFT    &kp Z   &kp X   &kp C   &kp V   &kp B  &none  &none                       &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp LGUI
                     &kp LALT  &mo RAISE  &kp SPACE     &kp SPACE    &kp LBKT   &kp RBKT
             >;
-        sensor-bindings = <&inc_dec_kp NONE NONE &inc_dec_kp NONE NONE>;
 
         };
 
@@ -57,7 +56,6 @@ lower_layer {
 &trans &kp CARET &kp KP_SLASH   &kp KP_ASTERISK &kp BACKSLASH   &kp GRAVE   &trans &trans   &kp TILDE   &kp DLLR    &kp LBRC    &kp RBRC    &kp AT      &trans
                                 &trans          &trans          &trans                      &trans      &trans      &trans
             >;
-        sensor-bindings = <&inc_dec_kp NONE NONE &inc_dec_kp NONE NONE>;
         };
 
 
@@ -69,7 +67,6 @@ raise_layer {
 &trans  &trans      &kp K_REDO  &kp K_CUT   &kp K_COPY  &kp K_PASTE   &none &kp K_MUTE  &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &trans &trans
                                 &trans      &trans      &trans                          &trans      &trans      &trans
             >;
-        sensor-bindings = <&inc_dec_kp NONE NONE &inc_dec_kp NONE NONE>;
         };
 
         };
