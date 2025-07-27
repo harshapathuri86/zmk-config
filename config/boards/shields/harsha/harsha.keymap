@@ -6,8 +6,6 @@
 
 #define BASE 0
 #define LOWER  1
-#define RAISE  2
-#define ADJUST  3
 
 #define AS(keycode) &as LS(keycode) keycode // Autoshift Macro
 
@@ -35,143 +33,18 @@
 
 / {
 
-    behaviors {
-        as: auto_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "AUTO_SHIFT";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        hm: homerow {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        hshft: homerow_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_SHIFT";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <199>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
-
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
-        };
-    };
-
-    macros {
-        mac_dotslash: mac_dotslash {
-            label = "mac_dotslash";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp DOT &kp DOT &kp FSLH>;
-        };
-        mac_obkt: mac_obkt {
-            label = "mac_open_brackets";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
-        };    
-        mac_obrc: mac_obrc {
-            label = "mac_open_braces";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LBRC &kp RBRC &kp LEFT>;
-        };    
-        mac_opar: mac_opar {
-            label = "mac_open_parentheses";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-        combo_jk_esc {
-            timeout-ms = <50>;
-            key-positions = <19 20>;
-            bindings = <&kp ESC>;
-        };
-        combo_xc_copy {
-            timeout-ms = <50>;
-            key-positions = <26 27>;
-            bindings = <&kp LC(C)>;
-        };
-        combo_zc_cut {
-            timeout-ms = <50>;
-            key-positions = <25 27>;
-            bindings = <&kp LC(X)>;
-        };
-        combo_zx_undo {
-            timeout-ms = <50>;
-            key-positions = <25 26>;
-            bindings = <&kp LC(Z)>;
-        };
-        combo_dotslash_dotdotslash {
-            timeout-ms = <50>;
-            key-positions = <35 36>;
-            bindings = <&mac_dotslash>;
-        };
-        combo_yu_rbkt {
-            timeout-ms = <50>;
-            key-positions = <6 7>;
-            bindings = <&kp RBKT>;
-        };
-        combo_hj_rbkc {
-            timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&kp RBRC>;
-        };
-        combo_nm_rpar {
-            timeout-ms = <50>;
-            key-positions = <32 33>;
-            bindings = <&kp RPAR>;
-        };
-        combo_rt_rbkt {
-            timeout-ms = <50>;
-            key-positions = <4 5>;
-            bindings = <&kp LBKT>;
-        };
-        combo_fg_rbkc {
-            timeout-ms = <50>;
-            key-positions = <16 17>;
-            bindings = <&kp LBRC>;
-        };
-        combo_vb_rpar {
-            timeout-ms = <50>;
-            key-positions = <28 29>;
-            bindings = <&kp LPAR>;
-        };
-    };
-
-
         keymap {
                 compatible = "zmk,keymap";
 
  default_layer {
 
             bindings = <
-&kp LBKT    &kp Q   &kp W   &kp E   &kp R   &kp T                       &kp Y   &kp U   &kp I       &kp O       &kp P       &kp RBKT
-&kp ESC     &hm LGUI A   &hm LALT S   &hm LCTRL D   &hshft LSHFT F   &kp G                       &kp H   &hm RSHFT J   &hshft RCTRL K       &hm RALT L       &hm RGUI SEMI    &kp SQT
-&sk LGUI    &kp Z   &kp X   &kp C   &kp V   &kp B  &none  &kp K_MUTE    &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk LALT
-                    &sk LCTRL  &mt LGUI RET  &lt LOWER TAB     &lt RAISE BKSP    &mt LALT SPACE   &sk LSHIFT
+&kp TAB    &kp Q   &kp W   &kp E   &kp R   &kp T                       &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BKSP
+&kp CAPS     &kp A   &kp S   &kp LCTRL D   &hshft LSHFT F   &kp G                       &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp RET
+&sk LSHIFT    &kp Z   &kp X   &kp C   &kp V   &kp B  &none  &none                       &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp LGUI
+                    &kp LALT  &mo RAISE  &kp SPACE     &kp SPACE    &kp LBKT   &kp RBKT
             >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&inc_dec_kp none none &inc_dec_kp none none>;
 
         };
 
@@ -183,7 +56,7 @@ lower_layer {
 &trans &kp CARET &kp KP_SLASH   &kp KP_ASTERISK &kp BACKSLASH   &kp GRAVE   &trans &trans   &kp TILDE   &kp DLLR    &kp LBRC    &kp RBRC    &kp AT      &trans
                                 &trans          &trans          &trans                      &trans      &trans      &trans
             >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&inc_dec_kp none none &inc_dec_kp none none>;
         };
 
 
@@ -195,20 +68,8 @@ raise_layer {
 &trans  &trans      &kp K_REDO  &kp K_CUT   &kp K_COPY  &kp K_PASTE   &none &kp K_MUTE  &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &trans &trans
                                 &trans      &trans      &trans                          &trans      &trans      &trans
             >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&inc_dec_kp none none &inc_dec_kp none none>;
         };
-
-    adjust_layer {
-
-            bindings = <
-&kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-&bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2        &bt BT_SEL 3    &bt BT_SEL 4                        &kp K_MUTE  &kp K_VOL_DN    &kp K_VOL_UP    &trans  &trans  &trans
-&trans      &trans          &sys_reset      &bootloader         &bt BT_PRV      &bt BT_NXT &bootloader &bootloader  &kp K_PP    &kp K_PREV      &kp K_NEXT      &trans  &trans  &trans
-                           &trans  &trans    &trans             &trans   &trans   &trans
-            >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
-        };
-
 
         };
 };
